@@ -1,4 +1,4 @@
-kwh_used = 1800
+kwh_used = 1000
 
 
 if kwh_used <= 500:
