@@ -6,4 +6,3 @@ def dictmap(d, f):
 
 def f(x):
     return x * x
-
