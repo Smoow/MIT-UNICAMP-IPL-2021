@@ -13,7 +13,7 @@ for i in range(len_neg, len_pos+1, 1):
         generator.append([i, j])
 
 while (counter < len(generator)):
-    if( (((generator[counter][0] ** 2) + generator[counter][1] ** 2) ** 0.5) <= p_d/2 ): 
+    if((((generator[counter][0] ** 2) + generator[counter][1] ** 2) ** 0.5) <= p_d/2):
         circles_inside.append(generator[counter])
     counter += 1
 

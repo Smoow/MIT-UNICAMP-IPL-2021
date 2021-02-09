@@ -4,5 +4,6 @@ def dictmap(d, f):
 
     return
 
+
 def f(x):
     return x * x

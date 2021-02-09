@@ -16,7 +16,7 @@ for i in toppings:
     m = len(i)
     total += total * ((12.0 + n + m) / 100.0)
     n += 1.0
-    
+
 
 if (special_tax[0] in toppings) or (special_tax[1] in toppings):
     total *= 1.1

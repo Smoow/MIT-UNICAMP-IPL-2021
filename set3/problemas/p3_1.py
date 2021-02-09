@@ -10,6 +10,7 @@ def join_arrays(array):
     out.append(None)
     return out
 
+
 def run_length_encode_2d(array):
     joined_array = join_arrays(array)
     array_length = len(joined_array)
@@ -17,7 +18,7 @@ def run_length_encode_2d(array):
     actual = 0
     counter = 1
     out = []
-    
+
     while (counter_index < array_length):
         if joined_array[actual] == joined_array[counter_index]:
             counter += 1
@@ -26,5 +27,5 @@ def run_length_encode_2d(array):
             actual += counter
             counter = 1
         counter_index += 1
-    
+
     return out

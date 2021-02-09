@@ -11,7 +11,7 @@ def ndoors(doors):
                 else:
                     doors_locked.append(j)
                     doors_unlocked.remove(j)
-                    
+
     return doors_unlocked
 
 

@@ -3,6 +3,7 @@ import string
 alpha = string.ascii_lowercase
 digits = string.digits
 
+
 def caesar_cipher(str, shift):
     """ 
         The Caesar Cipher is a famous and very old cryptography technique. 
@@ -19,7 +20,8 @@ def caesar_cipher(str, shift):
             index = alpha.find(low_letter)
             index += shift
 
-            if (index > 25 or index < 0): index %= 26
+            if (index > 25 or index < 0):
+                index %= 26
 
             ciphered += alpha[abs(index)]
 
@@ -27,7 +29,8 @@ def caesar_cipher(str, shift):
             index = digits.find(i)
             index += shift
 
-            if (index > 9 or index < 0): index %= 10
+            if (index > 9 or index < 0):
+                index %= 10
 
             ciphered += digits[abs(index)]
 

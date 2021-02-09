@@ -24,6 +24,3 @@ def approx_integral(f, lo, hi, num_regions):
 
 def f(x):
     return x * x
-
-
-print(approx_integral(f, 1, 5, 2))
