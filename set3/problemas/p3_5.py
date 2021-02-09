@@ -1,7 +1,7 @@
 def approx_derivative(f, x, delta=1e-6):
     derivative = (f(x+delta) - f(x-delta)) / (2*delta)
     return derivative
-
+    
 
 def approx_derivative_2(f, delta=1e-6):
     def f_line(x):
@@ -24,3 +24,6 @@ def approx_integral(f, lo, hi, num_regions):
 
 def f(x):
     return x * x
+
+
+print(approx_integral(f, 1, 5, 2))
