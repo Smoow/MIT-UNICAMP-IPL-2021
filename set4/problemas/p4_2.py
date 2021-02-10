@@ -31,7 +31,7 @@ class Triangle:
         self.p2 = p2
         self.p3 = p3
 
-    def side_lenghts(self):
+    def side_lengths(self):
         sl_1 = self.p1.euclidean_distance(self.p2)
         sl_2 = self.p2.euclidean_distance(self.p3)
         sl_3 = self.p3.euclidean_distance(self.p1)
@@ -39,7 +39,7 @@ class Triangle:
 
     def angles(self):
         a, b, c = self.side_lengths()
-        
+
         # utilizado a lei dos cossenos para o cálculo dos ângulos
         ang_12 = math.acos((a ** 2 + b ** 2 - c ** 2) / (2 * a * b))
         ang_23 = math.acos((b ** 2 + c ** 2 - a ** 2) / (2 * b * c))
@@ -47,18 +47,42 @@ class Triangle:
         return ang_12, ang_23, ang_31
 
     def side_classification(self):
-        a, b, c = self.side_lenghts()
+        a, b, c = self.side_lengths()
 
-        if (isequal(a, b) and isequal(b, c) and isequal(c, a)):
-            # Isosceles
-            return "isosceles"
-        elif not (isequal(a, b) and isequal(b, c) and isequal(c, a)):
-            # Scanele
-            return "scalene"
-        else:
-            # Equilateral
+        if isequal(a, b) and isequal(b, c) and isequal(c, a):
             return "equilateral"
 
-t = Triangle(Point(2,3), Point(5,6), Point(3,5))
+        if isequal(a, b) or isequal(b, c) or isequal(c, a):
+            return "isosceles"
 
-print(t.side_classification())
+        return "scalene"
+
+    def angle_classification(self):
+        large_angle = max(self.angles())
+
+        if large_angle > math.pi/2:
+            return "obtuse"
+
+        if isequal(large_angle, math.pi/3):
+            return "equiangular"
+
+        if isequal(large_angle, math.pi/2):
+            return "right"
+
+        return "acute"
+
+    def is_right(self):
+        if (self.angle_classification() == "right"):
+            return True
+
+        return False
+
+    def area(self):
+        # Utilizado a fórmula de Heron para aproveitar o perimeter e side_lengths
+        p = self.perimeter() / 2
+        a, b, c = self.side_lengths()
+
+        return (p * (p-a) * (p-b) * (p-c)) ** 0.5
+
+    def perimeter(self):
+        return sum(self.side_lengths())
